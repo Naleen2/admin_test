@@ -2,9 +2,10 @@ import {Button, NavLink} from '@mantine/core';
 import {useDisclosure} from '@mantine/hooks';
 import {AppShell, Burger} from '@mantine/core';
 import {useProductSelector} from "../store/hooks.ts";
-import MyMainPanel from "./MyMainPanel.tsx";
+import Products from "./Products.tsx";
 import {IconHome2} from '@tabler/icons-react';
-import {Browser as Router, Link, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
+import Categories from "./Categories.tsx";
 
 
 function MyApp() {
@@ -27,13 +28,17 @@ function MyApp() {
                 </AppShell.Header>
 
                 <AppShell.Navbar p="md">
-                    <NavLink label="Products" leftSection={<IconHome2 size="1rem" stroke={1.5}/>}/>
-                    <NavLink label="Categories" leftSection={<IconHome2 size="1rem" stroke={1.5}/>}/>
-
+                    <NavLink label="Products" component={Link} to="/products"
+                             leftSection={<IconHome2 size="1rem" stroke={1.5}/>}/>
+                    <NavLink label="Categories" component={Link} to="/categories"
+                             leftSection={<IconHome2 size="1rem" stroke={1.5}/>}/>
                 </AppShell.Navbar>
 
                 <AppShell.Main>
-                    <MyMainPanel products={products}></MyMainPanel>
+                    <Routes>
+                        <Route path="/products" element={<Products products={products}></Products>}></Route>
+                        <Route path="/categories" element={<Categories></Categories>}></Route>
+                    </Routes>
                 </AppShell.Main>
             </AppShell>
         </Router>

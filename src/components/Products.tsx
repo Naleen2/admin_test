@@ -7,7 +7,7 @@ type MyTableProps = {
     products: Product[]
 };
 
-function MyMainPanel({products}: MyTableProps) {
+function Products({products}: MyTableProps) {
 
     const rows = products.map((product) => (
         <Table.Tr key={product.id}>
@@ -46,4 +46,4 @@ function MyMainPanel({products}: MyTableProps) {
     );
 }
 
-export default MyMainPanel;
+export default Products;
