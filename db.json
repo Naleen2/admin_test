@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id" : "1",
+      "name": "HP 100",
+      "description": "HP Laptop",
+      "stockCount": 10,
+      "price": 1500,
+      "image": "https://3jnrp8-5173.csb.app/src/assets/students.jpg"
+    },
+    {
+      "id" : "2",
+      "name": "Laptop",
+      "description": "HP 200",
+      "stockCount": 10,
+      "price": 1500,
+      "image": "https://3jnrp8-5173.csb.app/src/assets/students.jpg"
+    }
+  ],
+  "comments": [
+    { "id": 1, "body": "Comment 1" },
+    { "id": 2, "body": "Comment 2" }
+  ]
+}
