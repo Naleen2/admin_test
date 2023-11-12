@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id" : "1",
+      "id": "1",
       "name": "HP 100",
       "description": "HP Laptop",
       "stockCount": 10,
@@ -9,7 +9,7 @@
       "image": "https://3jnrp8-5173.csb.app/src/assets/students.jpg"
     },
     {
-      "id" : "2",
+      "id": "2",
       "name": "Laptop",
       "description": "HP 200",
       "stockCount": 10,
@@ -17,8 +17,21 @@
       "image": "https://3jnrp8-5173.csb.app/src/assets/students.jpg"
     }
   ],
-  "comments": [
-    { "id": 1, "body": "Comment 1" },
-    { "id": 2, "body": "Comment 2" }
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electronics",
+      "description": "Mobile Phones, Tabs"
+    },
+    {
+      "id": 2,
+      "name": "Watches",
+      "description": "Rolex, Omega, etc..."
+    },
+    {
+      "id": "mantine-nc2rwgbfb",
+      "name": "Food",
+      "description": "Indian, Chinese"
+    }
   ]
 }

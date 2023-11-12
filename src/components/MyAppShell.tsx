@@ -1,9 +1,8 @@
-import {Button, NavLink} from '@mantine/core';
+import {AppShell, Burger, Button, NavLink} from '@mantine/core';
 import {useDisclosure} from '@mantine/hooks';
-import {AppShell, Burger} from '@mantine/core';
 import {useProductSelector} from "../store/hooks.ts";
 import Products from "./Products.tsx";
-import {IconHome2} from '@tabler/icons-react';
+import {IconBrandProducthunt, IconCategory} from '@tabler/icons-react';
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import Categories from "./Categories.tsx";
 
@@ -29,9 +28,9 @@ function MyApp() {
 
                 <AppShell.Navbar p="md">
                     <NavLink label="Products" component={Link} to="/products"
-                             leftSection={<IconHome2 size="1rem" stroke={1.5}/>}/>
+                             leftSection={<IconBrandProducthunt size="1rem" stroke={1.5}/>}/>
                     <NavLink label="Categories" component={Link} to="/categories"
-                             leftSection={<IconHome2 size="1rem" stroke={1.5}/>}/>
+                             leftSection={<IconCategory size="1rem" stroke={1.5}/>}/>
                 </AppShell.Navbar>
 
                 <AppShell.Main>

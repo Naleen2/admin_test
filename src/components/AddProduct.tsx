@@ -1,7 +1,7 @@
 import {useForm} from '@mantine/form';
 import {TextInput, Button, Group, Box, NumberInput} from '@mantine/core';
 import {useProductDispatch} from "../store/hooks.ts";
-import {createNewProduct} from "../store/product-slice.ts";
+import {createNewProduct} from "../store/slices/product-slice.ts";
 import {randomId } from "@mantine/hooks";
 import {faker} from "@faker-js/faker";
 

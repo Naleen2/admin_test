@@ -1,6 +1,6 @@
 import {Table, Image} from '@mantine/core';
 import AddProduct from "./AddProduct.tsx";
-import {Product} from "../store/product-slice.ts";
+import {Product} from "../store/slices/product-slice.ts";
 
 
 type MyTableProps = {
