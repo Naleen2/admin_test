@@ -1,11 +1,15 @@
 import {useForm} from '@mantine/form';
 import {TextInput, Button, Group, Box, NumberInput} from '@mantine/core';
 import {useProductDispatch} from "../store/hooks.ts";
-import {createNewProduct} from "../store/slices/product-slice.ts";
+import {createNewProduct, Product} from "../store/slices/product-slice.ts";
 import {randomId } from "@mantine/hooks";
 import {faker} from "@faker-js/faker";
 
-function AddProduct() {
+type AddProductProps = {
+    onSubmit : (p: Product) => void;
+}
+
+function AddProduct({onSubmit} : AddProductProps) {
 
     const dispatch = useProductDispatch();
 
@@ -20,7 +24,9 @@ function AddProduct() {
     });
 
     function addProduct(id: string): void {
+        const product = {id, ...form.getTransformedValues()};
         dispatch(createNewProduct({id, ...form.getTransformedValues()}));
+        onSubmit(product);
         form.reset();
     }
 

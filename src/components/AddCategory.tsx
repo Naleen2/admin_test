@@ -2,8 +2,13 @@ import {useForm} from "@mantine/form";
 import {Box, Button, Group, TextInput} from "@mantine/core";
 import {useAddCategoryMutation} from "../store/apis/categoryApi.ts";
 import {randomId} from "@mantine/hooks";
+import {Category} from "./Categories.tsx";
 
-function AddCategory() {
+type AddCategoryProps = {
+    onSubmit: (c: Category) => void
+}
+
+function AddCategory({onSubmit}: AddCategoryProps) {
     const [addCategory] = useAddCategoryMutation();
 
     const form = useForm({
@@ -13,7 +18,7 @@ function AddCategory() {
         },
 
         validate: {
-            name : (value) => {
+            name: (value) => {
                 if (!value) {
                     return 'name can not be empty';
                 }
@@ -24,10 +29,12 @@ function AddCategory() {
     function addNewCategory(id: string) {
         if (form.isValid()) {
             const transformedValues = form.getTransformedValues();
-            addCategory({
+            const newCategory = {
                 id,
                 ...transformedValues
-            });
+            };
+            addCategory(newCategory);
+            onSubmit(newCategory)
         }
     }
 
@@ -48,7 +55,7 @@ function AddCategory() {
                 />
 
                 <Group justify="flex-end" mt="md">
-                    <Button type="submit" onClick= {() => addNewCategory(randomId())}>Submit</Button>
+                    <Button type="submit" onClick={() => addNewCategory(randomId())}>Submit</Button>
                 </Group>
             </form>
         </Box>

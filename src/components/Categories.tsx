@@ -1,8 +1,9 @@
 import {useGetCategoriesQuery} from "../store/apis/categoryApi.ts";
 import {ReactNode} from "react";
-import {Loader, Table} from "@mantine/core";
+import {Button, Drawer, Loader, Table} from "@mantine/core";
 import AddCategory from "./AddCategory.tsx";
 import CategoryItem from "./CategoryItem.tsx";
+import {useDisclosure} from "@mantine/hooks";
 
 export type Category = {
     id: string,
@@ -11,6 +12,8 @@ export type Category = {
 }
 
 function Categories() {
+    const [opened, { open, close }] = useDisclosure(false);
+
     const {data, isFetching, error} = useGetCategoriesQuery(undefined);
 
     let content: ReactNode;
@@ -22,6 +25,11 @@ function Categories() {
 
         return (
             <div>
+                <Drawer opened={opened} onClose={close} title="Add New Category">
+                    <AddCategory onSubmit={close}></AddCategory>
+                </Drawer>
+                <Button onClick={open}>Add New Category</Button>
+
                 <Table>
                     <Table.Thead>
                         <Table.Tr>
@@ -31,8 +39,6 @@ function Categories() {
                     </Table.Thead>
                     <Table.Tbody>{rows}</Table.Tbody>
                 </Table>
-
-                <AddCategory></AddCategory>
             </div>
         );
     }
@@ -42,7 +48,7 @@ function Categories() {
     } else if (error) {
         content = <div>Error loading Data</div>;
     } else {
-        content = getCategoryTable(data);
+        content = getCategoryTable(data as Category[]);
     }
 
     return <div>
