@@ -7,7 +7,8 @@ export type Product = {
     description: string;
     stockCount: number,
     price: number,
-    image: string
+    image: string,
+    categories: string[]
 }
 
 type ProductState = {
@@ -22,7 +23,8 @@ const initialState: ProductState = {
                 description: "HP Laptop",
                 stockCount: 10,
                 price: 1500,
-                image: "https://3jnrp8-5173.csb.app/src/assets/students.jpg"
+                image: "https://3jnrp8-5173.csb.app/src/assets/students.jpg",
+                categories: []
             },
             {
                 id : "2",
@@ -30,7 +32,8 @@ const initialState: ProductState = {
                 description: "HP 200",
                 stockCount: 10,
                 price: 1500,
-                image: "https://3jnrp8-5173.csb.app/src/assets/students.jpg"
+                image: "https://3jnrp8-5173.csb.app/src/assets/students.jpg",
+                categories: []
             }
     ],
 };

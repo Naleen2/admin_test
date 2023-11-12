@@ -6,7 +6,8 @@
       "description": "HP Laptop",
       "stockCount": 10,
       "price": 1500,
-      "image": "https://3jnrp8-5173.csb.app/src/assets/students.jpg"
+      "image": "https://3jnrp8-5173.csb.app/src/assets/students.jpg",
+      "categories": []
     },
     {
       "id": "2",
@@ -14,24 +15,25 @@
       "description": "HP 200",
       "stockCount": 10,
       "price": 1500,
-      "image": "https://3jnrp8-5173.csb.app/src/assets/students.jpg"
+      "image": "https://3jnrp8-5173.csb.app/src/assets/students.jpg",
+      "categories": []
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Electronics",
       "description": "Mobile Phones, Tabs"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Watches",
       "description": "Rolex, Omega, etc..."
     },
     {
-      "id": "mantine-nc2rwgbfb",
-      "name": "Food",
-      "description": "Indian, Chinese"
+      "id": "mantine-4ylrc9mz9",
+      "name": "Dogs",
+      "description": "asd"
     }
   ]
 }
