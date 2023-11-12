@@ -1,6 +1,7 @@
-import {Avatar, Badge, Table} from "@mantine/core";
+import {ActionIcon, Avatar, Badge, Table} from "@mantine/core";
 import {type Product} from "../store/slices/product-slice.ts";
 import {Category} from "./Categories.tsx";
+import {IconEdit} from "@tabler/icons-react";
 
 type ProductItemProps = {
     product: Product,
@@ -31,6 +32,11 @@ function ProductItem({product, categories}: ProductItemProps) {
         <Table.Td>{getCategoryName(product.categories)}</Table.Td>
         <Table.Td>
             <Avatar size={60} src={product.image} radius={15}/>
+        </Table.Td>
+        <Table.Td>
+            <ActionIcon variant="filled" aria-label="Settings">
+                <IconEdit style={{ width: '70%', height: '70%' }} stroke={1.5} />
+            </ActionIcon>
         </Table.Td>
     </Table.Tr>);
 }
