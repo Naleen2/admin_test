@@ -1,8 +1,9 @@
-import {Avatar, Badge, Button, Drawer, Table} from '@mantine/core';
+import {Button, Drawer, Table} from '@mantine/core';
 import AddProduct from "./AddProduct.tsx";
 import {Product} from "../store/slices/product-slice.ts";
 import {useDisclosure} from "@mantine/hooks";
 import {useGetCategoriesQuery} from "../store/apis/categoryApi.ts";
+import ProductItem from "./ProductItem.tsx";
 
 
 type MyTableProps = {
@@ -13,34 +14,11 @@ function Products({products}: MyTableProps) {
 
     const {data: categories} = useGetCategoriesQuery(undefined);
 
-    const categoryNameAndId = new Map<string, string>();
-
-    if (categories) {
-        for (const category of categories) {
-            categoryNameAndId.set(category.id, category.name);
-        }
-    }
-
-    function getCategoryName(ids: string[]) {
-        return ids.map(id => {
-            return <Badge size='md' key={id} color="blue">{categoryNameAndId.get(id)}</Badge>;
-        });
-    }
-
     const [opened, {open, close}] = useDisclosure(false);
 
-    const rows = products.map((product) => (
-        <Table.Tr key={product.id}>
-            <Table.Td>{product.name}</Table.Td>
-            <Table.Td>{product.description}</Table.Td>
-            <Table.Td>{product.stockCount}</Table.Td>
-            <Table.Td>{product.price}</Table.Td>
-            <Table.Td>{getCategoryName(product.categories)}</Table.Td>
-            <Table.Td>
-                <Avatar size={60} src={product.image} radius={15}/>
-            </Table.Td>
-        </Table.Tr>
-    ));
+    const rows = products.map(value => {
+        return <ProductItem key={value.id} product={value} categories={categories}></ProductItem>;
+    });
 
     return (
         <div>
