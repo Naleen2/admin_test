@@ -1,9 +1,12 @@
 import {Button, Drawer, Table} from '@mantine/core';
-import AddProduct from "./AddProduct.tsx";
-import {Product} from "../store/slices/product-slice.ts";
-import {useDisclosure} from "@mantine/hooks";
+import AddEditProduct from "./AddEditProduct.tsx";
+import {createNewProduct, editExistingProduct, Product} from "../store/slices/product-slice.ts";
+import {useProductDispatch} from "../store/hooks.ts";
+import {randomId, useDisclosure} from "@mantine/hooks";
 import {useGetCategoriesQuery} from "../store/apis/categoryApi.ts";
 import ProductItem from "./ProductItem.tsx";
+import {faker} from "@faker-js/faker";
+import {ReactNode, useState} from "react";
 
 
 type MyTableProps = {
@@ -12,20 +15,56 @@ type MyTableProps = {
 
 function Products({products}: MyTableProps) {
 
+    const dispatch = useProductDispatch();
+
     const {data: categories} = useGetCategoriesQuery(undefined);
 
     const [opened, {open, close}] = useDisclosure(false);
 
     const rows = products.map(value => {
-        return <ProductItem key={value.id} product={value} categories={categories}></ProductItem>;
+        return <ProductItem key={value.id} product={value} categories={categories} onEdit={onEditProductClick}></ProductItem>;
     });
+
+    const [drawerContent, setDrawerContent] = useState<ReactNode | undefined>(undefined);
+
+    function addNewProduct(product: Product) {
+        dispatch(createNewProduct(product));
+        close();
+    }
+
+    function editProduct(product: Product) {
+        dispatch(editExistingProduct(product));
+        close();
+    }
+
+    function onNewProductClick() {
+        setDrawerContent(<AddEditProduct product={getEmptyProduct(randomId())} onSubmit={addNewProduct}></AddEditProduct>);
+        open();
+    }
+
+    function onEditProductClick(product: Product) {
+        setDrawerContent(<AddEditProduct product={{...product}} onSubmit={editProduct}></AddEditProduct>);
+        open();
+    }
+
+    function getEmptyProduct(id: string): Product {
+        return {
+            id,
+            name: '',
+            description: '',
+            stockCount: 1,
+            price: 0,
+            image: faker.image.avatar(),
+            categories: []
+        }
+    }
 
     return (
         <div>
-            <Drawer opened={opened} onClose={close} title="Add New Product">
-                <AddProduct onSubmit={close}></AddProduct>
+            <Drawer opened={opened} onClose={close} title="Add/Edit Product">
+                {drawerContent}
             </Drawer>
-            <Button onClick={open}>Add New Product</Button>
+            <Button onClick={onNewProductClick}>Add New Product</Button>
             <Table>
                 <Table.Thead>
                     <Table.Tr>

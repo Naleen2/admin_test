@@ -1,20 +1,16 @@
 import {useForm} from '@mantine/form';
 import {Box, Button, ComboboxItem, Group, MultiSelect, NumberInput, TextInput} from '@mantine/core';
-import {useProductDispatch} from "../store/hooks.ts";
-import {createNewProduct, Product} from "../store/slices/product-slice.ts";
-import {randomId} from "@mantine/hooks";
-import {faker} from "@faker-js/faker";
+import {Product} from "../store/slices/product-slice.ts";
 import {useGetCategoriesQuery} from "../store/apis/categoryApi.ts";
 
-type AddProductProps = {
+type AddEditProductProps = {
+    product: Product,
     onSubmit: (p: Product) => void;
 }
 
-function AddProduct({onSubmit}: AddProductProps) {
+function AddEditProduct({product, onSubmit}: AddEditProductProps) {
 
-    const dispatch = useProductDispatch();
-
-    const {data : categories, isFetching} = useGetCategoriesQuery(undefined);
+    const {data: categories, isFetching} = useGetCategoriesQuery(undefined);
 
     let categoryComboItems: ComboboxItem[] | undefined;
 
@@ -28,14 +24,7 @@ function AddProduct({onSubmit}: AddProductProps) {
     }
 
     const form = useForm({
-        initialValues: {
-            name: '',
-            description: '',
-            stockCount: 1,
-            price: 0,
-            image: faker.image.avatar(),
-            categories: []
-        },
+        initialValues: product,
         validate: {
             name: (value) => {
                 if (!value) {
@@ -45,10 +34,9 @@ function AddProduct({onSubmit}: AddProductProps) {
         }
     });
 
-    function addProduct(id: string): void {
+    function save(): void {
         if (form.isValid()) {
-            const product = {id, ...form.getTransformedValues()};
-            dispatch(createNewProduct({id, ...form.getTransformedValues()}));
+            product = form.getTransformedValues();
             onSubmit(product);
             form.reset();
         }
@@ -61,16 +49,16 @@ function AddProduct({onSubmit}: AddProductProps) {
             <NumberInput label="Stock Count" placeholder="Stock Count" {...form.getInputProps('stockCount')} />
             <NumberInput label="Price" placeholder="Price" {...form.getInputProps('price')} />
             <MultiSelect  {...form.getInputProps('categories')}
-                label="Choose Categories"
-                placeholder="Choose Categories"
-                data={categoryComboItems}
+                          label="Choose Categories"
+                          placeholder="Choose Categories"
+                          data={categoryComboItems}
             />
             {/*<ImageUpload></ImageUpload>*/}
 
             <Group justify="center" mt="xl">
                 <Button
                     variant="outline"
-                    onClick={() => addProduct(randomId())}>
+                    onClick={() => save()}>
                     Add Product
                 </Button>
             </Group>
@@ -78,4 +66,4 @@ function AddProduct({onSubmit}: AddProductProps) {
     );
 }
 
-export default AddProduct;
+export default AddEditProduct;

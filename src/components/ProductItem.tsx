@@ -5,10 +5,11 @@ import {IconEdit} from "@tabler/icons-react";
 
 type ProductItemProps = {
     product: Product,
+    onEdit: (p: Product) => void,
     categories: Category[] | undefined
 };
 
-function ProductItem({product, categories}: ProductItemProps) {
+function ProductItem({product, categories, onEdit}: ProductItemProps) {
 
     const categoryNameAndId = new Map<string, string>();
 
@@ -35,7 +36,7 @@ function ProductItem({product, categories}: ProductItemProps) {
         </Table.Td>
         <Table.Td>
             <ActionIcon variant="filled" aria-label="Settings">
-                <IconEdit style={{ width: '70%', height: '70%' }} stroke={1.5} />
+                <IconEdit style={{ width: '70%', height: '70%' }} stroke={1.5} onClick={() => onEdit(product)} />
             </ActionIcon>
         </Table.Td>
     </Table.Tr>);

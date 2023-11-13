@@ -44,9 +44,21 @@ export const productSlice = createSlice({
     reducers: {
         createNewProduct(state, action: PayloadAction<Product>) {
             state.products.push(action.payload);
+        },
+        editExistingProduct(state, action: PayloadAction<Product>) {
+            const indexToEdit = state.products.findIndex(item => item.id === action.payload.id);
+            const updatedProducts = [...state.products];
+            updatedProducts[indexToEdit] = {
+                ...updatedProducts[indexToEdit],
+                ...action.payload,
+            };
+            return {
+                ...state,
+                products: updatedProducts,
+            };
         }
     }
 });
 
 
-export const { createNewProduct } = productSlice.actions;
+export const { createNewProduct, editExistingProduct } = productSlice.actions;
