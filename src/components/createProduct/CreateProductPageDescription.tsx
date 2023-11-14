@@ -1,4 +1,4 @@
-import {Grid, Text, Title} from "@mantine/core";
+import {Box, Text, Title} from "@mantine/core";
 
 type CreateProductPageDescriptionProps = {
     name: string,
@@ -7,10 +7,10 @@ type CreateProductPageDescriptionProps = {
 
 function CreateProductPageDescription({name, description}: CreateProductPageDescriptionProps) {
     return (
-        <Grid.Col span={4}>
+        <Box>
             <Title order={4}>{name}</Title>
             <Text>{description}</Text>
-        </Grid.Col>
+        </Box>
     )
 }
 

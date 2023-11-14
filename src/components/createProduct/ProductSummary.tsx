@@ -1,12 +1,12 @@
-import {Divider, Grid, Select, SimpleGrid, Textarea, TextInput} from "@mantine/core";
-import CreateProductPageDescription from "./CreateProductPageDescription.tsx";
+import {Box, Divider, Grid, Select, SimpleGrid, Textarea, TextInput} from "@mantine/core";
+import CreateProductSection from "./CreateProductSection.tsx";
 
 function ProductSummary() {
-    return <div>
-        <Grid pt={30} pb={30}>
-            <CreateProductPageDescription name="Summary"
-                                          description="Edit your product description and necessary information from here"></CreateProductPageDescription>
-            <Grid.Col span={8}>
+    return (
+        <Box>
+            <CreateProductSection
+                title="Summary"
+                description="Edit your product description and necessary information from here">
                 <Grid>
                     <Grid.Col span={12}>
                         <SimpleGrid cols={{base: 1, sm: 2, lg: 2}} spacing="lg">
@@ -28,10 +28,11 @@ function ProductSummary() {
                         <Textarea label="Description" placeholder="Product title" autosize minRows={3}/>
                     </Grid.Col>
                 </Grid>
-            </Grid.Col>
-        </Grid>
-        <Divider my="sm" variant="dotted"/>
-    </div>
+            </CreateProductSection>
+            <Divider my="sm" variant="dotted"/>
+        </Box>);
+
+
 }
 
 export default ProductSummary;
