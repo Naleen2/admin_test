@@ -1,6 +1,6 @@
 import {ActionIcon, Avatar, Badge, Table} from "@mantine/core";
 import {type Product} from "../store/slices/product-slice.ts";
-import {Category} from "./Categories.tsx";
+import {Category} from "../pages/Categories.tsx";
 import {IconEdit} from "@tabler/icons-react";
 
 type ProductItemProps = {

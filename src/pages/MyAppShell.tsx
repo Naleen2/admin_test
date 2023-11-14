@@ -5,6 +5,7 @@ import Products from "./Products.tsx";
 import {IconBrandProducthunt, IconCategory} from '@tabler/icons-react';
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import Categories from "./Categories.tsx";
+import CreateProductPage from "./CreateProductPage.tsx";
 
 
 function MyApp() {
@@ -31,12 +32,15 @@ function MyApp() {
                              leftSection={<IconBrandProducthunt size="1rem" stroke={1.5}/>}/>
                     <NavLink label="Categories" component={Link} to="/categories"
                              leftSection={<IconCategory size="1rem" stroke={1.5}/>}/>
+                    <NavLink label="Create Product" component={Link} to="/createProduct"
+                             leftSection={<IconCategory size="1rem" stroke={1.5}/>}/>
                 </AppShell.Navbar>
 
                 <AppShell.Main>
                     <Routes>
                         <Route path="/products" element={<Products products={products}></Products>}></Route>
                         <Route path="/categories" element={<Categories></Categories>}></Route>
+                        <Route path="/createProduct" element={<CreateProductPage></CreateProductPage>}></Route>
                     </Routes>
                 </AppShell.Main>
             </AppShell>

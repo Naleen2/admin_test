@@ -1,5 +1,5 @@
 import {ActionIcon, Table} from "@mantine/core";
-import {type Category} from "./Categories.tsx";
+import {type Category} from "../pages/Categories.tsx";
 import {IconTrash} from "@tabler/icons-react";
 import {useDeleteCategoryMutation} from "../store/apis/categoryApi.ts";
 

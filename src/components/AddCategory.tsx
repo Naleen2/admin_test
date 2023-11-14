@@ -2,7 +2,7 @@ import {useForm} from "@mantine/form";
 import {Button, Group, SimpleGrid, TextInput} from "@mantine/core";
 import {useAddCategoryMutation} from "../store/apis/categoryApi.ts";
 import {randomId} from "@mantine/hooks";
-import {Category} from "./Categories.tsx";
+import {Category} from "../pages/Categories.tsx";
 
 type AddCategoryProps = {
     onSubmit: (c: Category) => void

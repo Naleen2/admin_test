@@ -1,10 +1,10 @@
 import {Button, Drawer, Table} from '@mantine/core';
-import AddEditProduct from "./AddEditProduct.tsx";
+import AddEditProduct from "../components/AddEditProduct.tsx";
 import {createNewProduct, editExistingProduct, Product} from "../store/slices/product-slice.ts";
 import {useProductDispatch} from "../store/hooks.ts";
 import {randomId, useDisclosure} from "@mantine/hooks";
 import {useGetCategoriesQuery} from "../store/apis/categoryApi.ts";
-import ProductItem from "./ProductItem.tsx";
+import ProductItem from "../components/ProductItem.tsx";
 import {faker} from "@faker-js/faker";
 import {ReactNode, useState} from "react";
 

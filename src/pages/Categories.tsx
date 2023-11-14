@@ -1,8 +1,8 @@
 import {useGetCategoriesQuery} from "../store/apis/categoryApi.ts";
 import {ReactNode} from "react";
 import {Button, Drawer, Loader, Table} from "@mantine/core";
-import AddCategory from "./AddCategory.tsx";
-import CategoryItem from "./CategoryItem.tsx";
+import AddCategory from "../components/AddCategory.tsx";
+import CategoryItem from "../components/CategoryItem.tsx";
 import {useDisclosure} from "@mantine/hooks";
 
 export type Category = {
