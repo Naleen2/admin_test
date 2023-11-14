@@ -6,8 +6,8 @@ function UploadProductImages() {
     return (
         <Box>
             <CreateProductSection
-                title="Summary"
-                description="Edit your product description and necessary information from here">
+                title="Upload new product images"
+                description="Upload your product image gallery here">
                 <ImageUpload></ImageUpload>
             </CreateProductSection>
             <Divider my="sm" variant="dotted"/>
