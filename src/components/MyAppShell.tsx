@@ -15,9 +15,9 @@ function MyApp() {
     return (
         <Router>
             <AppShell
-                header={{height: 60}}
+                header={{height: 100}}
                 navbar={{width: 300, breakpoint: 'sm', collapsed: {mobile: !opened}}}
-                padding="md"
+                padding="lg"
             >
                 <AppShell.Header>
                     <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm"/>

@@ -21,14 +21,19 @@
   ],
   "categories": [
     {
-      "id": "1",
-      "name": "Electronics",
-      "description": "Mobile Phones, Tabs"
-    },
-    {
       "id": "2",
       "name": "Watches",
       "description": "Rolex, Omega, etc..."
+    },
+    {
+      "id": "mantine-gjf32aayc",
+      "name": "Clothing",
+      "description": "Mens, Womens clothing"
+    },
+    {
+      "id": "mantine-9x5tusypf",
+      "name": "Kitchen Items",
+      "description": "All the kitchen items"
     }
   ]
 }

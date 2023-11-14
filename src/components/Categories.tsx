@@ -25,7 +25,7 @@ function Categories() {
 
         return (
             <div>
-                <Drawer opened={opened} onClose={close} title="Add New Category">
+                <Drawer opened={opened} onClose={close} title="Add New Category" position="right" size={"xl"}>
                     <AddCategory onSubmit={close}></AddCategory>
                 </Drawer>
                 <Button onClick={open}>Add New Category</Button>

@@ -61,7 +61,7 @@ function Products({products}: MyTableProps) {
 
     return (
         <div>
-            <Drawer opened={opened} onClose={close} title="Add/Edit Product">
+            <Drawer opened={opened} onClose={close} title="Add/Edit Product" position="right" size={"xl"}>
                 {drawerContent}
             </Drawer>
             <Button onClick={onNewProductClick}>Add New Product</Button>
