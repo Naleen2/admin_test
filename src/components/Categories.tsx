@@ -30,7 +30,7 @@ function Categories() {
                 </Drawer>
                 <Button onClick={open}>Add New Category</Button>
 
-                <Table>
+                <Table verticalSpacing="md">
                     <Table.Thead>
                         <Table.Tr>
                             <Table.Th>Category name</Table.Th>

@@ -65,7 +65,7 @@ function Products({products}: MyTableProps) {
                 {drawerContent}
             </Drawer>
             <Button onClick={onNewProductClick}>Add New Product</Button>
-            <Table>
+            <Table verticalSpacing="sm">
                 <Table.Thead>
                     <Table.Tr>
                         <Table.Th>Name</Table.Th>

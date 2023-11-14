@@ -1,5 +1,5 @@
 import {useForm} from '@mantine/form';
-import {Box, Button, ComboboxItem, Group, MultiSelect, NumberInput, TextInput} from '@mantine/core';
+import {Button, ComboboxItem, Group, MultiSelect, NumberInput, SimpleGrid, TextInput} from '@mantine/core';
 import {Product} from "../store/slices/product-slice.ts";
 import {useGetCategoriesQuery} from "../store/apis/categoryApi.ts";
 
@@ -43,7 +43,7 @@ function AddEditProduct({product, onSubmit}: AddEditProductProps) {
     }
 
     return (
-        <Box maw={340} mx="auto">
+        <SimpleGrid cols={1} verticalSpacing="md">
             <TextInput label="Name" withAsterisk placeholder="Name" {...form.getInputProps('name')} />
             <TextInput label="Description" placeholder="Description" {...form.getInputProps('description')} />
             <NumberInput label="Stock Count" placeholder="Stock Count" {...form.getInputProps('stockCount')} />
@@ -62,7 +62,7 @@ function AddEditProduct({product, onSubmit}: AddEditProductProps) {
                     Add Product
                 </Button>
             </Group>
-        </Box>
+        </SimpleGrid>
     );
 }
 

@@ -1,5 +1,5 @@
 import {useForm} from "@mantine/form";
-import {Box, Button, Group, TextInput} from "@mantine/core";
+import {Button, Group, SimpleGrid, TextInput} from "@mantine/core";
 import {useAddCategoryMutation} from "../store/apis/categoryApi.ts";
 import {randomId} from "@mantine/hooks";
 import {Category} from "./Categories.tsx";
@@ -39,7 +39,8 @@ function AddCategory({onSubmit}: AddCategoryProps) {
     }
 
     return (
-        <Box maw={340} mx="auto">
+        <SimpleGrid verticalSpacing="md">
+
             <form onSubmit={form.onSubmit((values) => console.log(values))}>
                 <TextInput
                     withAsterisk
@@ -58,7 +59,7 @@ function AddCategory({onSubmit}: AddCategoryProps) {
                     <Button type="submit" onClick={() => addNewCategory(randomId())}>Submit</Button>
                 </Group>
             </form>
-        </Box>
+        </SimpleGrid>
     );
 }
 
