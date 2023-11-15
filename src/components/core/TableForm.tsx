@@ -17,7 +17,7 @@ function TableForm({children, colCountSmallScreen, colCountLargeScreen, colCount
     }
 
     return (
-        <SimpleGrid cols={{base: 1, sm: colCountSmallScreen, m: colCountMediumScreen, lg: colCountLargeScreen}} spacing="lg">
+        <SimpleGrid cols={{base: 1, sm: colCountSmallScreen, m: colCountMediumScreen, lg: colCountLargeScreen}} spacing="xl">
             {children}
         </SimpleGrid>
     );

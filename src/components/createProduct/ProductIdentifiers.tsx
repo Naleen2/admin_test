@@ -1,6 +1,7 @@
 import {Box, TextInput} from "@mantine/core";
 import CreateProductSection from "./CreateProductSection.tsx";
 import TableForm from "../core/TableForm.tsx";
+import CustomFieldsAndValues from "../core/CustomFieldsAndValues.tsx";
 
 function ProductIdentifiers() {
     return (
@@ -13,9 +14,8 @@ function ProductIdentifiers() {
                     <TextInput label="Manufacturer Part Number" placeholder="12345"/>
                     <TextInput label="Brand Name" placeholder="Brand Name"/>
                     <TextInput label="Product UPC/EAN" placeholder="12345"/>
-                    <TextInput label="Custom Field Name" placeholder="Custom Field Name"/>
-                    <TextInput label="Custom Field Value" placeholder="Custom Field Value"/>
                 </TableForm>
+                <CustomFieldsAndValues></CustomFieldsAndValues>
             </CreateProductSection>
         </Box>
     );

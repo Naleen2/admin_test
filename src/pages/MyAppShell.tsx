@@ -16,7 +16,7 @@ function MyApp() {
     return (
         <Router>
             <AppShell
-                header={{height: 100}}
+                header={{height: 212}}
                 navbar={{width: 300, breakpoint: 'sm', collapsed: {mobile: !opened}}}
                 padding="lg"
             >
@@ -42,6 +42,7 @@ function MyApp() {
                         <Route path="/categories" element={<Categories></Categories>}></Route>
                         <Route path="/createProduct" element={<CreateProductPage></CreateProductPage>}></Route>
                     </Routes>
+
                 </AppShell.Main>
             </AppShell>
         </Router>
