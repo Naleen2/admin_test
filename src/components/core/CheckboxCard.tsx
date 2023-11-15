@@ -9,7 +9,7 @@ type CheckboxCardProps = {
 
 function CheckboxCard({title, isSelected, onButtonClick}: CheckboxCardProps) {
     return (
-        <Button variant={"outline"} onClick={() => onButtonClick(title)}
+        <Button size={"lg"} variant={"default"} onClick={() => onButtonClick(title)}
                 rightSection={isSelected ? <IconCheck size={14}/> : null}>{title}</Button>
     );
 }

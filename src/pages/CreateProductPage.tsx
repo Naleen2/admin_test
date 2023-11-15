@@ -3,6 +3,7 @@ import UploadProductImages from "../components/createProduct/UploadProductImages
 import Pricing from "../components/createProduct/Pricing.tsx";
 import InventoryTracking from "../components/createProduct/InventoryTracking.tsx";
 import Availability from "../components/createProduct/Availability.tsx";
+import {Divider} from "@mantine/core";
 
 function CreateProductPage() {
     return (<div>
@@ -11,6 +12,7 @@ function CreateProductPage() {
         <Pricing></Pricing>
         <InventoryTracking></InventoryTracking>
         <Availability></Availability>
+        <Divider my="sm" variant="dotted"/>
     </div>);
 }
 
