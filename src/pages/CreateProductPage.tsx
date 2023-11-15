@@ -4,6 +4,7 @@ import Pricing from "../components/createProduct/Pricing.tsx";
 import InventoryTracking from "../components/createProduct/InventoryTracking.tsx";
 import Availability from "../components/createProduct/Availability.tsx";
 import {Divider} from "@mantine/core";
+import ProductIdentifiers from "../components/createProduct/ProductIdentifiers.tsx";
 
 function CreateProductPage() {
     return (<div>
@@ -13,6 +14,7 @@ function CreateProductPage() {
         <InventoryTracking></InventoryTracking>
         <Availability></Availability>
         <Divider my="sm" variant="dotted"/>
+        <ProductIdentifiers></ProductIdentifiers>
     </div>);
 }
 
