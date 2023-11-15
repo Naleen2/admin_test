@@ -1,6 +1,6 @@
 import {useState} from "react";
 import CustomFieldAndValue, {FieldAndValue} from "./CustomFieldAndValue.tsx";
-import {Box, Button, SimpleGrid} from "@mantine/core";
+import {Box, Button, Grid, SimpleGrid} from "@mantine/core";
 import {randomId} from "@mantine/hooks";
 
 type CustomFieldsAndValuesProps = {
@@ -39,13 +39,19 @@ function CustomFieldsAndValues({fieldsAndValues}: CustomFieldsAndValuesProps) {
     });
 
     return (
-        <Box>
-            <SimpleGrid cols={{base: 1, sm: 1, m: 1, lg: 1}} spacing="xl">
-                {content}
-            </SimpleGrid>
-            <Button variant="default" onClick={addCustomFieldAndValue}>
-                + Add Item
-            </Button>
+        <Box pt={30}>
+            <Grid align={"end"}>
+                <Grid.Col span={12}>
+                    <SimpleGrid cols={{base: 1, sm: 1, m: 1, lg: 1}} spacing="xl">
+                        {content}
+                    </SimpleGrid>
+                </Grid.Col>
+                <Grid.Col span={12}>
+                    <Button variant="default" onClick={addCustomFieldAndValue}>
+                        + Add Item
+                    </Button>
+                </Grid.Col>
+            </Grid>
         </Box>
 
     );
