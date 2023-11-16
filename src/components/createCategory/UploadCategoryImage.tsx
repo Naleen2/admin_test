@@ -1,6 +1,6 @@
 import {Box} from "@mantine/core";
 import CreateProductSection from "../createProduct/CreateProductSection.tsx";
-import ImageUpload from "../ImageUpload.tsx";
+import ImageUpload from "../core/ImageUpload.tsx";
 
 function UploadCategoryImage() {
     return (

@@ -1,18 +1,22 @@
 import {useState} from 'react';
-import {Text, Image, SimpleGrid, Group, rem, Box, Paper} from '@mantine/core';
-import {Dropzone, IMAGE_MIME_TYPE, FileWithPath} from '@mantine/dropzone';
+import {Box, Group, Paper, rem, SimpleGrid, Text} from '@mantine/core';
+import {Dropzone, FileWithPath, IMAGE_MIME_TYPE} from '@mantine/dropzone';
 import {IconPhoto, IconUpload, IconX} from "@tabler/icons-react";
+import ImageWithX from "./ImageWithX.tsx";
 
 function ImageUpload() {
     const [files, setFiles] = useState<FileWithPath[]>([]);
 
     const previews = files.map((file, index) => {
-        const imageUrl = URL.createObjectURL(file);
-        return <Image radius={15} key={index} src={imageUrl} onLoad={() => URL.revokeObjectURL(imageUrl)}/>;
+        return <ImageWithX file={file} index={index} onRemove={removeFile}></ImageWithX>
     });
 
     function addFiles(newFiles: FileWithPath[]): void {
         setFiles([...files, ...newFiles])
+    }
+
+    function removeFile(file) {
+        setFiles(files.filter((f) => f !== file));
     }
 
     return (
