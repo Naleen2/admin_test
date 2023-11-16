@@ -1,4 +1,4 @@
-import {AppShell, Burger, Button, NavLink} from '@mantine/core';
+import {AppShell, Button, NavLink, SimpleGrid} from '@mantine/core';
 import {useDisclosure} from '@mantine/hooks';
 import {useProductSelector} from "../store/hooks.ts";
 import Products from "./Products.tsx";
@@ -21,12 +21,10 @@ function MyApp() {
                 padding="lg"
             >
                 <AppShell.Header>
-                    <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm"/>
-                    <div>Logo</div>
-                    <Button variant='filled'>HEADER</Button>
-
+                    <SimpleGrid cols={1} spacing={140}>
+                        <Button variant="outline">LOGO</Button>
+                    </SimpleGrid>
                 </AppShell.Header>
-
                 <AppShell.Navbar p="md">
                     <NavLink label="Products" component={Link} to="/products"
                              leftSection={<IconBrandProducthunt size="1rem" stroke={1.5}/>}/>

@@ -1,4 +1,4 @@
-import {Box, Divider} from "@mantine/core";
+import {Box} from "@mantine/core";
 import ImageUpload from "../ImageUpload.tsx";
 import CreateProductSection from "./CreateProductSection.tsx";
 
@@ -10,7 +10,6 @@ function UploadProductImages() {
                 description="Upload your product image gallery here">
                 <ImageUpload></ImageUpload>
             </CreateProductSection>
-            <Divider my="sm" variant="dotted"/>
         </Box>);
 }
 

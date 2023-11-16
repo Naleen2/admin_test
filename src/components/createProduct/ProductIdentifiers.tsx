@@ -15,7 +15,12 @@ function ProductIdentifiers() {
                     <TextInput label="Brand Name" placeholder="Brand Name"/>
                     <TextInput label="Product UPC/EAN" placeholder="12345"/>
                 </TableForm>
-                <CustomFieldsAndValues></CustomFieldsAndValues>
+                <CustomFieldsAndValues fieldLabelAndValueLabel={
+                    {
+                        fieldLabel: "Custom Field Name",
+                        valueLabel: "Custom Field Value"
+                    }
+                }></CustomFieldsAndValues>
             </CreateProductSection>
         </Box>
     );

@@ -5,7 +5,7 @@ import {Grid} from "@mantine/core";
 type CreateProductSectionProps = {
     title: string,
     description: string,
-    children: ReactNode
+    children: ReactNode,
 }
 
 function CreateProductSection({title, description, children}: CreateProductSectionProps) {

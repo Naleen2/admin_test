@@ -8,14 +8,20 @@ export type FieldAndValue = {
     value: string
 }
 
+export type FieldLabelAndValueLabel = {
+    fieldLabel: string,
+    valueLabel: string
+}
+
 type CustomFieldAndValueProps = {
     fieldAndValue: FieldAndValue,
+    fieldLabelAndValueLabel: FieldLabelAndValueLabel,
     onValueChange: (fv: FieldAndValue) => void;
     onRemoval: (id: string) => void;
     isRemovable: boolean
 }
 
-function CustomFieldAndValue({fieldAndValue, onValueChange, onRemoval, isRemovable}: CustomFieldAndValueProps) {
+function CustomFieldAndValue({fieldAndValue, fieldLabelAndValueLabel, onValueChange, onRemoval, isRemovable}: CustomFieldAndValueProps) {
 
     const form = useForm({
         initialValues: fieldAndValue
@@ -25,12 +31,12 @@ function CustomFieldAndValue({fieldAndValue, onValueChange, onRemoval, isRemovab
         <Box>
             <Grid onBlur={() => onValueChange(form.getTransformedValues())}>
                 <Grid.Col span={isRemovable ? 5.75 : 6}>
-                    <TextInput label="Custom Field Name"
-                               placeholder="Custom Field Name" {...form.getInputProps('fieldName')} />
+                    <TextInput label={fieldLabelAndValueLabel.fieldLabel}
+                               placeholder={fieldLabelAndValueLabel.fieldLabel} {...form.getInputProps('fieldName')} />
                 </Grid.Col>
                 <Grid.Col span={isRemovable ? 5.75 : 6}>
-                    <TextInput label="Custom Field Value"
-                               placeholder="Custom Field Value"  {...form.getInputProps('value')}/>
+                    <TextInput label={fieldLabelAndValueLabel.valueLabel}
+                               placeholder={fieldLabelAndValueLabel.valueLabel}  {...form.getInputProps('value')}/>
                 </Grid.Col>
                 <Grid.Col span={0.5}>
                     {isRemovable &&

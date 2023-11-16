@@ -1,4 +1,4 @@
-import {Box, Divider, Select, Textarea, TextInput} from "@mantine/core";
+import {Box, Select, Textarea, TextInput} from "@mantine/core";
 import CreateProductSection from "./CreateProductSection.tsx";
 import TableForm from "../core/TableForm.tsx";
 
@@ -26,7 +26,6 @@ function ProductSummary() {
                     <Textarea pt={15} label="Description" placeholder="Product title" autosize minRows={3}/>
                 </TableForm>
             </CreateProductSection>
-            <Divider my="sm" variant="dotted"/>
         </Box>);
 
 

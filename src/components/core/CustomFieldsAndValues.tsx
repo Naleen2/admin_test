@@ -1,13 +1,14 @@
 import {useState} from "react";
-import CustomFieldAndValue, {FieldAndValue} from "./CustomFieldAndValue.tsx";
+import CustomFieldAndValue, {FieldAndValue, FieldLabelAndValueLabel} from "./CustomFieldAndValue.tsx";
 import {Box, Button, Grid, SimpleGrid} from "@mantine/core";
 import {randomId} from "@mantine/hooks";
 
 type CustomFieldsAndValuesProps = {
-    fieldsAndValues?: []
+    fieldsAndValues?: [],
+    fieldLabelAndValueLabel: FieldLabelAndValueLabel
 }
 
-function CustomFieldsAndValues({fieldsAndValues}: CustomFieldsAndValuesProps) {
+function CustomFieldsAndValues({fieldsAndValues, fieldLabelAndValueLabel}: CustomFieldsAndValuesProps) {
 
     const [fvs, setFvs]
         = useState<FieldAndValue[]>(fieldsAndValues ? fieldsAndValues : [{id: randomId(), fieldName: "", value: ""}])
@@ -33,6 +34,7 @@ function CustomFieldsAndValues({fieldsAndValues}: CustomFieldsAndValuesProps) {
     const content = fvs.map(fv => {
         return <CustomFieldAndValue key={fv.id}
                                     fieldAndValue={fv}
+                                    fieldLabelAndValueLabel={fieldLabelAndValueLabel}
                                     onValueChange={onValueChange}
                                     isRemovable={fvs.length != 1}
                                     onRemoval={onCustomFieldRemoval}></CustomFieldAndValue>
