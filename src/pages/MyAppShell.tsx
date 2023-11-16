@@ -6,6 +6,7 @@ import {IconBrandProducthunt, IconCategory} from '@tabler/icons-react';
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import Categories from "./Categories.tsx";
 import CreateProductPage from "./CreateProductPage.tsx";
+import CreateCategoryPage from "./CreateCategoryPage.tsx";
 
 
 function MyApp() {
@@ -31,7 +32,10 @@ function MyApp() {
                     <NavLink label="Categories" component={Link} to="/categories"
                              leftSection={<IconCategory size="1rem" stroke={1.5}/>}/>
                     <NavLink label="Create Product" component={Link} to="/createProduct"
+                             leftSection={<IconBrandProducthunt size="1rem" stroke={1.5}/>}/>
+                    <NavLink label="Create Category" component={Link} to="/createCategory"
                              leftSection={<IconCategory size="1rem" stroke={1.5}/>}/>
+
                 </AppShell.Navbar>
 
                 <AppShell.Main>
@@ -39,6 +43,7 @@ function MyApp() {
                         <Route path="/products" element={<Products products={products}></Products>}></Route>
                         <Route path="/categories" element={<Categories></Categories>}></Route>
                         <Route path="/createProduct" element={<CreateProductPage></CreateProductPage>}></Route>
+                        <Route path="/createCategory" element={<CreateCategoryPage></CreateCategoryPage>}></Route>
                     </Routes>
 
                 </AppShell.Main>
