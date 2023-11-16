@@ -6,6 +6,10 @@ import Availability from "../components/createProduct/Availability.tsx";
 import {Affix, Divider, Tabs} from "@mantine/core";
 import ProductIdentifiers from "../components/createProduct/ProductIdentifiers.tsx";
 import Shipping from "../components/createProduct/Shipping.tsx";
+import Seo from "../components/createProduct/Seo.tsx";
+import Variant from "../components/createProduct/Variant.tsx";
+import {Processor} from "postcss";
+import ProductTag from "../components/createProduct/ProductTag.tsx";
 
 function CreateProductPage() {
     return (<div>
@@ -36,6 +40,12 @@ function CreateProductPage() {
         <ProductIdentifiers></ProductIdentifiers>
         <Divider my="sm" variant="dotted"/>
         <Shipping></Shipping>
+        <Divider my="sm" variant="dotted"/>
+        <Seo></Seo>
+        <Divider my="sm" variant="dotted"/>
+        <Variant></Variant>
+        <Divider my="sm" variant="dotted"/>
+        <ProductTag></ProductTag>
         <Divider my="sm" variant="dotted"/>
     </div>);
 }
